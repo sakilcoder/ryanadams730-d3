@@ -1,3 +1,9 @@
+#map {
+    border: 1px solid silver;
+    background: #E6E6E6;
+}
+
+
 /* On mouse hover, lighten state color */
 path:hover {
     fill-opacity: 1;
@@ -11,11 +17,11 @@ div.tooltip {
     height: 28px; */
     padding: 10px;
     font: 12px sans-serif;
-    background: rgba(255,255,255,.9);
+    background: rgba(255, 255, 255, .9);
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
-    box-shadow: 0 3px 14px rgba(0,0,0,0.9);
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.9);
 }
 
 /* Legend Font Style */
@@ -29,4 +35,3 @@ body {
     left: 800px;
     top: 350px;
 }
-
