@@ -10,7 +10,7 @@ var path = d3.geo.path()
     .projection(projection);
 
 //Create SVG element
-var svg = d3.select("body")
+var svg = d3.select("div#container")
     .append("svg")
     .attr("width", w)
     .attr("height", h);
@@ -41,7 +41,8 @@ d3.json("assets/data/us-states.json", function (json) {
         })
         .on("mouseover", function (d) {
             // console.log(d);
-            str = '<p>2020 Private Health Insurance Total Spending: $' + d.properties.spend_2020 + '</p><p>2020 Percent of Medicare Paid by Employers to Hospitals: ' + parseFloat(d.properties.paid_employer_2020).toFixed(2)+ '%</p><p>2019 Percent of Medicare Rate for Commercial Break Even: '+ d.properties.medicare_rent_2019 +'%<p>';
+            str = '<div style="width:100%; border-bottom:1px solid #000; font-weight:bold; text-align:center;">'+d.properties.name+'</div>'
+            str += '<p>2020 Private Health Insurance Total Spending: $' + d.properties.spend_2020 + '</p><p>2020 Percent of Medicare Paid by Employers to Hospitals: ' + parseFloat(d.properties.paid_employer_2020).toFixed(2)+ '%</p><p>2019 Percent of Medicare Rate for Commercial Break Even: '+ d.properties.medicare_rent_2019 +'%<p>';
             div.transition()
                 .duration(200)
                 .style("opacity", 1);
