@@ -33,6 +33,6 @@ body {
 .legend {
     position: relative;
     right: 0;
-    bottom: 0;
+    bottom: 30%;
     margin: 5px;
 }
