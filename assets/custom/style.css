@@ -31,7 +31,8 @@ body {
 
 /* Legend Position Style */
 .legend {
-    position: absolute;
-    left: 800px;
-    top: 350px;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    margin: 5px;
 }
