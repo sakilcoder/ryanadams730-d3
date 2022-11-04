@@ -9,18 +9,14 @@ var path = d3.geo.path()
     .projection(projection);
 
 var getColor = function (value) {
-    return value > 300 ? '#002c4b' :
-        value > 280 ? '#003e69' :
-            value > 270 ? '#004778' :
-                value > 250 ? '#005087' :
-                    value > 220 ? '#005996' :
-                        value > 210 ? '#1969a0' :
-                            value > 190 ? '#327aab' :
-                                value > 140 ? '#4c8ab5' : '#669bc0';
+    return value > 300 ? '#013F5A' :
+        value > 250 ? '#016C99' :
+            value > 200 ? '#249FDA' :
+                value > 150 ? '#AFD0EE' : '#D5E5F6';
 }
 
-var color = ["#002c4b", "#003e69", "#004778", "#005087", "#005996", "#1969a0", "#327aab", "#4c8ab5", "#669bc0"];
-var legendText = ["> 300", "280 - 300", "270 - 280", "250 - 270", "220 - 250", "210 - 220", "190 - 210", "140 - 190", "140 <"];
+var color = ["#013F5A", "#016C99", "#249FDA", "#AFD0EE", "#D5E5F6"];
+var legendText = ["> 300", "250 - 300", "200 - 250", "150 - 200", "150 <"];
 
 var svg = d3.select("#map")
     .append("svg")
@@ -39,23 +35,23 @@ d3.csv("assets/data/data.csv", function (data) {
         for (var i = 0; i < data.length; i++) {
 
             var dataid = data[i].id;
-    
+
             var dataName = data[i].name;
             var dataCode = data[i].state_code;
             var dataSpend_2020 = data[i].spend_2020;
             var dataPaid_employer_2020 = data[i].paid_employer_2020;
             var dataMedicare_rent_2019 = data[i].medicare_rent_2019;
 
-    
-            for (var j = 0; j < json.features.length; j++)  {
+
+            for (var j = 0; j < json.features.length; j++) {
                 var jsonid = json.features[j].properties.id1;
-    
+
                 if (dataid == jsonid) {
-                    json.features[j].properties.name = dataName; 
-                    json.features[j].properties.state_code = dataCode; 
-                    json.features[j].properties.spend_2020 = dataSpend_2020; 
-                    json.features[j].properties.paid_employer_2020 = dataPaid_employer_2020; 
-                    json.features[j].properties.medicare_rent_2019 = dataMedicare_rent_2019; 
+                    json.features[j].properties.name = dataName;
+                    json.features[j].properties.state_code = dataCode;
+                    json.features[j].properties.spend_2020 = dataSpend_2020;
+                    json.features[j].properties.paid_employer_2020 = dataPaid_employer_2020;
+                    json.features[j].properties.medicare_rent_2019 = dataMedicare_rent_2019;
                     break;
                 }
             }
@@ -92,7 +88,7 @@ d3.csv("assets/data/data.csv", function (data) {
             });
 
         // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-        var legend = d3.select("#map").append("svg")
+        var legend = d3.select("#legend").append("svg")
             .attr("class", "legend")
             .attr("width", 140)
             .attr("height", 180)
