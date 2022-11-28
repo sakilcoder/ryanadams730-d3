@@ -40,7 +40,7 @@ d3.csv("assets/data/data.csv", function (data) {
             var dataCode = data[i].state_code;
             var dataSpend_2020 = data[i].spend_2020;
             var dataPaid_employer_2020 = data[i].paid_employer_2020;
-            var dataMedicare_rent_2019 = data[i].medicare_rent_2019;
+            var dataMedicare_rent_2020 = data[i].medicare_rent_2020;
 
 
             for (var j = 0; j < json.features.length; j++) {
@@ -51,7 +51,7 @@ d3.csv("assets/data/data.csv", function (data) {
                     json.features[j].properties.state_code = dataCode;
                     json.features[j].properties.spend_2020 = dataSpend_2020;
                     json.features[j].properties.paid_employer_2020 = dataPaid_employer_2020;
-                    json.features[j].properties.medicare_rent_2019 = dataMedicare_rent_2019;
+                    json.features[j].properties.medicare_rent_2020 = dataMedicare_rent_2020;
                     break;
                 }
             }
@@ -72,7 +72,7 @@ d3.csv("assets/data/data.csv", function (data) {
             })
             .on("mouseover", function (d) {
                 str = '<div style="width:100%; border-bottom:1px solid #000; font-weight:bold; text-align:center;">' + d.properties.name + '</div>'
-                str += '<p>2020 Private Health Insurance Total Spending: $' + d.properties.spend_2020 + '</p><p>2020 Percent of Medicare Paid by Employers to Hospitals: ' + parseFloat(d.properties.paid_employer_2020).toFixed(2) + '%</p><p>2019 Percent of Medicare Rate for Commercial Break Even: ' + d.properties.medicare_rent_2019 + '%<p>';
+                str += '<p>2020 Private Health Insurance Total Spending: $' + d.properties.spend_2020 + '</p><p>2020 Medicare Paid by Employers to Hospitals: ' + parseFloat(d.properties.paid_employer_2020).toFixed(2) + '%</p><p>2020 Medicare Rate for Commercial Break Even: ' + d.properties.medicare_rent_2020 + '<p>';
                 div.transition()
                     .duration(200)
                     .style("opacity", 1);
